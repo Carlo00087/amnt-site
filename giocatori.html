@@ -1,34 +1,154 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Giocatori | A.M.N.T.</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Giocatori | A.M.N.T.</title>
+<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-  <header>
-    <img src="assets/logo.jpg" alt="Logo A.M.N.T." class="logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="risultati.html">Risultati</a></li>
-        <li><a href="calendario.html">Calendario</a></li>
-        <li><a href="classifica.html">Classifica</a></li>
-        <li><a href="giocatori.html">Giocatori</a></li>
-        <li><a href="notizie.html">Notizie</a></li>
-      
-        <li><a href="sponsor.html">Sponsor</a></li>
-        <li><a href="network.html">Network</a></li>
-    </ul>
-    </nav>
-  </header>
-  <main>
-    <h1>Giocatori</h1>
-    <p>Contenuto in arrivo...</p>
-  </main>
-  <footer>
-    <p>&copy; 2025 A.M.N.T. Tutti i diritti riservati.</p>
-  </footer>
+<header>
+<img alt="Logo A.M.N.T." class="logo" src="assets/logo.jpg"/>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="risultati.html">Risultati</a></li>
+<li><a href="calendario.html">Calendario</a></li>
+<li><a href="classifica.html">Classifica</a></li>
+<li><a href="giocatori.html">Giocatori</a></li>
+<li><a href="notizie.html">Notizie</a></li>
+<li><a href="sponsor.html">Sponsor</a></li>
+<li><a href="network.html">Network</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<h1>Giocatori</h1>
+<h1>Giocatori</h1>
+<section>
+<h2 style="color: white;">Portieri</h2>
+<table>
+<tr><th style="color: black; background-color: white;">Nome</th><th style="color: black; background-color: white;">Numero</th></tr>
+<tr onclick="showPlayerInfo('Carlo Nocerino')" style="cursor:pointer;"><td>Carlo Nocerino</td><td>1</td></tr>
+<tr onclick="showPlayerInfo('Cheriff Rostom')" style="cursor:pointer;"><td>Cheriff Rostom</td><td>12</td></tr>
+</table>
+</section>
+<section>
+<h2 style="color: white;">Difensori</h2>
+<table>
+<tr><th style="color: black; background-color: white;">Nome</th><th style="color: black; background-color: white;">Numero</th></tr>
+<tr onclick="showPlayerInfo('Fabrizio De Martino')" style="cursor:pointer;"><td>Fabrizio De Martino</td><td>25</td></tr>
+<tr onclick="showPlayerInfo('Christian Barone')" style="cursor:pointer;"><td>Christian Barone</td><td>17</td></tr>
+<tr onclick="showPlayerInfo('Carlo Emanuele Ponticelli')" style="cursor:pointer;"><td>Carlo Emanuele Ponticelli</td><td>-</td></tr>
+<tr onclick="showPlayerInfo('Anthony Campese')" style="cursor:pointer;"><td>Anthony Campese</td><td>3</td></tr>
+<tr onclick="showPlayerInfo('Alessandro Prota')" style="cursor:pointer;"><td>Alessandro Prota</td><td>5</td></tr>
+<tr onclick="showPlayerInfo('Alessandro Boccia')" style="cursor:pointer;"><td>Alessandro Boccia</td><td>4</td></tr>
+<tr onclick="showPlayerInfo('Alfredo Stolder')" style="cursor:pointer;"><td>Alfredo Stolder</td><td>-</td></tr>
+</table>
+</section>
+<section>
+<h2 style="color: white;">Centrocampisti</h2>
+<table>
+<tr><th style="color: black; background-color: white;">Nome</th><th style="color: black; background-color: white;">Numero</th></tr>
+<tr onclick="showPlayerInfo('Umberto Pietropaolo')" style="cursor:pointer;"><td>Umberto Pietropaolo</td><td>8</td></tr>
+<tr onclick="showPlayerInfo('Mirko Mascolo')" style="cursor:pointer;"><td>Mirko Mascolo</td><td>10</td></tr>
+<tr onclick="showPlayerInfo('Matthias Spedaliere')" style="cursor:pointer;"><td>Matthias Spedaliere</td><td>9</td></tr>
+<tr onclick="showPlayerInfo('Davide Prota')" style="cursor:pointer;"><td>Davide Prota</td><td>11</td></tr>
+<tr onclick="showPlayerInfo('Christian Farias')" style="cursor:pointer;"><td>Christian Farias</td><td>6</td></tr>
+<tr onclick="showPlayerInfo('Alessio Pane')" style="cursor:pointer;"><td>Alessio Pane</td><td>70</td></tr>
+<tr onclick="showPlayerInfo('Christian Ceglie')" style="cursor:pointer;"><td>Christian Ceglie</td><td>-</td></tr>
+</table>
+</section>
+<section>
+<h2 style="color: white;">Attaccanti</h2>
+<table>
+<tr><th style="color: black; background-color: white;">Nome</th><th style="color: black; background-color: white;">Numero</th></tr>
+<tr onclick="showPlayerInfo('Nicola Palumbo')" style="cursor:pointer;"><td>Nicola Palumbo</td><td>21</td></tr>
+<tr onclick="showPlayerInfo('Luigi Guarino')" style="cursor:pointer;"><td>Luigi Guarino</td><td>-</td></tr>
+<tr onclick="showPlayerInfo('Antonio Oliviero')" style="cursor:pointer;"><td>Antonio Oliviero</td><td>14</td></tr>
+</table>
+</section>
+<div class="modal" id="playerModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">×</span>
+<h2>Informazioni Giocatore</h2>
+<table>
+<tr><th style="color: black; background-color: white;">Nome</th><td id="info-nome"></td></tr>
+<tr><th style="background-color:#ffffff; color:#000000; text-align:left;">Cognome</th><td id="info-cognome"></td></tr>
+<tr><th style="background-color:#ffffff; color:#000000; text-align:left;">Età</th><td id="info-eta"></td></tr>
+<tr><th style="background-color:#ffffff; color:#000000; text-align:left;">Posizione</th><td id="info-posizione"></td></tr>
+<tr><th style="background-color:#ffffff; color:#000000; text-align:left;">Goal</th><td id="info-goal"></td></tr>
+<tr><th style="background-color:#ffffff; color:#000000; text-align:left;">Assist</th><td id="info-assist"></td></tr>
+<tr><th style="background-color:#ffffff; color:#000000; text-align:left;">Presenze</th><td id="info-presenze"></td></tr>
+<tr><th style="background-color:#ffffff; color:#000000; text-align:left;">Ammonizioni</th><td id="info-ammonizioni"></td></tr>
+<tr><th style="background-color:#ffffff; color:#000000; text-align:left;">Squalifiche</th><td id="info-squalifiche"></td></tr>
+</table>
+</div>
+</div>
+<script>
+function showPlayerInfo(name) {
+  const parts = name.split(" ");
+  document.getElementById("info-nome").textContent = parts.slice(0, -1).join(" ") || name;
+  document.getElementById("info-cognome").textContent = parts.slice(-1).join(" ") || "";
+  document.getElementById("info-eta").textContent = "-";
+  document.getElementById("info-posizione").textContent = "-";
+  document.getElementById("info-goal").textContent = "-";
+  document.getElementById("info-assist").textContent = "-";
+  document.getElementById("info-presenze").textContent = "-";
+  document.getElementById("info-ammonizioni").textContent = "-";
+  document.getElementById("info-squalifiche").textContent = "-";
+  document.getElementById("playerModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("playerModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById("playerModal");
+  if (event.target == modal) {
+    closeModal();
+  }
+};
+</script>
+<style>
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+  background-color: #ffffff; color: #000000;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</main>
+<footer>
+<p>© 2025 A.M.N.T. Tutti i diritti riservati.</p>
+</footer>
 </body>
 </html>

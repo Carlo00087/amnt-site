@@ -1,39 +1,51 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sponsor</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sponsor</title>
+<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-    <header>
-        <h1>Sponsor</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="risultati.html">Risultati</a></li>
-                <li><a href="calendario.html">Calendario</a></li>
-                <li><a href="classifica.html">Classifica</a></li>
-                <li><a href="giocatori.html">Giocatori</a></li>
-                <li><a href="notizie.html">Notizie</a></li>
-                <li><a href="sponsor.html">Sponsor</a></li>
-                <li><a href="network.html">Network</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <h2>I nostri Sponsor</h2>
-        <div class="sponsor-grid">
-            <!-- DUPLICA QUESTO BLOCCO PER AGGIUNGERE ALTRI SPONSOR -->
-            <div class="sponsor-card">
-                <div class="logo-placeholder">Logo Sponsor</div>
-                <h3>GIUMAS</h3>
-            </div>
-            <!-- FINE BLOCCO -->
-        </div>
-        <a href="index.html" class="back-link">Torna alla Home</a>
-    </main>
+<header>
+<h1>Sponsor</h1>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="risultati.html">Risultati</a></li>
+<li><a href="calendario.html">Calendario</a></li>
+<li><a href="classifica.html">Classifica</a></li>
+<li><a href="giocatori.html">Giocatori</a></li>
+<li><a href="notizie.html">Notizie</a></li>
+<li><a href="sponsor.html">Sponsor</a></li>
+<li><a href="network.html">Network</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<h2>I nostri Sponsor</h2>
+<div class="sponsor-grid">
+<!-- DUPLICA QUESTO BLOCCO PER AGGIUNGERE ALTRI SPONSOR -->
+<div class="sponsor-card" onclick="showGiumasInfo()" style="; cursor: pointer;">
+<div class="logo-placeholder">Logo Sponsor</div>
+<h3 onclick="showGiumasInfo()" style="color: black;; cursor: pointer;">GIUMAS</h3>
+</div>
+<!-- FINE BLOCCO -->
+</div>
+<a class="back-link" href="index.html">Torna alla Home</a>
+</main>
+<div id="giumasModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5);">
+<div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:80%; max-width:400px; border-radius:10px;">
+<span onclick="document.getElementById('giumasModal').style.display='none'" style="float:right; font-size:28px; font-weight:bold; cursor:pointer;">×</span>
+<h3 style="color: black;">VIENICI A TROVARE SU:</h3>
+<p><a href="https://www.instagram.com/giumas_hairman/?utm_source=ig_web_button_share_sheet" target="_blank">https://www.instagram.com/giumas_hairman/</a></p>
+</div>
+</div>
+<script>
+function showGiumasInfo() {
+  document.getElementById('giumasModal').style.display = 'block';
+}
+</script>
 </body>
 </html>
