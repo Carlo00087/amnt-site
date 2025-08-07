@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Risultati | A.M.N.T.</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Risultati | A.M.N.T.</title>
+<link href="style.css" rel="stylesheet"/>
 <style>
 /* Page transition */
 body {
@@ -20,7 +21,6 @@ body.fade-out {
   opacity: 0;
 }
 </style>
-
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("fade-in");
@@ -42,31 +42,59 @@ body.fade-out {
     });
   });
 </script>
-
 </head>
 <body>
-  <header>
-    <img src="assets/logo.jpg" alt="Logo A.M.N.T." class="logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="risultati.html">Risultati</a></li>
-        <li><a href="calendario.html">Calendario</a></li>
-        <li><a href="classifica.html">Classifica</a></li>
-        <li><a href="giocatori.html">Giocatori</a></li>
-        <li><a href="notizie.html">Notizie</a></li>
-      
-        <li><a href="sponsor.html">Sponsor</a></li>
-        <li><a href="network.html">Network</a></li>
-    </ul>
-    </nav>
-  </header>
-  <main>
-    <h1>Risultati</h1>
-    <p>Contenuto in arrivo...</p>
-  </main>
-  <footer>
-    <p>&copy; 2025 A.M.N.T. Tutti i diritti riservati.</p>
-  </footer>
+<div style="margin: 20px 0; display: flex; flex-wrap: wrap; gap: 10px;">
+<input id="searchInput" onkeyup="filterResults()" placeholder="Cerca partite..." style="padding: 8px; flex: 1; min-width: 200px;" type="text"/>
+<input id="startDate" onchange="filterResults()" style="padding: 8px;" type="date"/>
+<input id="endDate" onchange="filterResults()" style="padding: 8px;" type="date"/>
+</div>
+<script>
+function filterResults() {
+    var input = document.getElementById('searchInput').value.toLowerCase();
+    var startDate = document.getElementById('startDate').value;
+    var endDate = document.getElementById('endDate').value;
+    var rows = document.querySelectorAll('.match-row');
+
+    rows.forEach(function(row) {
+        var text = row.textContent.toLowerCase();
+        var date = row.getAttribute('data-date');
+
+        var matchesText = input === "" || text.includes(input);
+        var matchesDate = true;
+
+        if (startDate && date < startDate) matchesDate = false;
+        if (endDate && date > endDate) matchesDate = false;
+
+        if (matchesText && matchesDate) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+</script>
+<header>
+<img alt="Logo A.M.N.T." class="logo" src="assets/logo.jpg"/>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="risultati.html">Risultati</a></li>
+<li><a href="calendario.html">Calendario</a></li>
+<li><a href="classifica.html">Classifica</a></li>
+<li><a href="giocatori.html">Giocatori</a></li>
+<li><a href="notizie.html">Notizie</a></li>
+<li><a href="sponsor.html">Sponsor</a></li>
+<li><a href="network.html">Network</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<h1>Risultati</h1>
+<p>Contenuto in arrivo...</p>
+</main>
+<footer>
+<p>© 2025 A.M.N.T. Tutti i diritti riservati.</p>
+</footer>
 </body>
 </html>
