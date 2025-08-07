@@ -6,6 +6,44 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Sponsor</title>
 <link href="style.css" rel="stylesheet"/>
+<style>
+/* Page transition */
+body {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("fade-in");
+
+    document.querySelectorAll("a[href]").forEach(link => {
+      if (link.hostname === window.location.hostname) {
+        link.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (href && !href.startsWith("#") && !href.startsWith("mailto:") && !href.startsWith("tel:")) {
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.classList.add("fade-out");
+            setTimeout(() => {
+              window.location = href;
+            }, 300);
+          }
+        });
+      }
+    });
+  });
+</script>
+
 </head>
 <body>
 <header>

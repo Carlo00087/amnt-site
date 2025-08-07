@@ -1,11 +1,48 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home | A.M.N.T.</title>
   <link rel="stylesheet" href="style.css" />
+<style>
+/* Page transition */
+body {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("fade-in");
+
+    document.querySelectorAll("a[href]").forEach(link => {
+      if (link.hostname === window.location.hostname) {
+        link.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (href && !href.startsWith("#") && !href.startsWith("mailto:") && !href.startsWith("tel:")) {
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.classList.add("fade-out");
+            setTimeout(() => {
+              window.location = href;
+            }, 300);
+          }
+        });
+      }
+    });
+  });
+</script>
+
 </head>
 <body>
   <header>
@@ -18,35 +55,32 @@
         <li><a href="classifica.html">Classifica</a></li>
         <li><a href="giocatori.html">Giocatori</a></li>
         <li><a href="notizie.html">Notizie</a></li>
-      
         <li><a href="sponsor.html">Sponsor</a></li>
-        <li><a href="network.html">Network</a></li>
-    </ul>
+        <li><a href="network.html" ">Network</a></li>
+      </ul>
     </nav>
   </header>
-  <main>
-    <p>&copy; 2025 A.M.N.T. Tutti i diritti riservati.</p>
+
+  <main class="network">
+    <div class="network-container">
+      <img src="IMG_4102.jpg" alt="Squadra di calcio a 7" class="network-img" />
+      <div class="network-text">
+        <h1>Benvenuti in A.M.N.T.</h1>
+        <p>
+          Siamo una squadra di calcio a 7 nata dalla passione e dall’amicizia.<br>
+          Ogni partita è una sfida, ogni allenamento un’occasione per crescere.<br><br>
+          In campo mettiamo impegno, sacrificio e tanta determinazione.<br>
+          Il nostro obiettivo non è solo vincere, ma migliorare insieme, divertirci e creare ricordi indimenticabili.<br><br>
+          Crediamo nei valori dello sport: rispetto, lealtà, spirito di squadra.<br>
+          Uniti dentro e fuori dal campo, perché è così che nascono le vere squadre.
+        </p>
+      </div>
+    </div>
+  
+      </main>
+
+  <footer>
+    &copy; 2025 A.M.N.T. Tutti i diritti riservati.
   </footer>
-</body>
-</html>
-<html lang="it">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Home | A.M.N.T.</title>
-<link href="style.css" rel="stylesheet"/>
-</head>
-<body>
-<div style="text-align: center; padding: 40px;">
-    <img src="IMG_4102.jpg" alt="Squadra di calcio a 7" style="max-width: 60%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-    <p style="margin-top: 20px; font-size: 1.1em; line-height: 1.6;">
-        Siamo una squadra di calcio a 7 nata dalla passione e dall’amicizia.<br>
-        Ogni partita è una sfida, ogni allenamento un’occasione per crescere.<br><br>
-        In campo mettiamo impegno, sacrificio e tanta determinazione.<br>
-        Il nostro obiettivo non è solo vincere, ma migliorare insieme, divertirci e creare ricordi indimenticabili.<br><br>
-        Crediamo nei valori dello sport: rispetto, lealtà, spirito di squadra.<br>
-        Uniti dentro e fuori dal campo, perché è così che nascono le vere squadre.
-    </p>
-</div>
 </body>
 </html>
